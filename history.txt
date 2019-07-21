@@ -1,0 +1,100 @@
+20acb small fix for build without webif
+72e4a old compiler dont like passive #pragma comments
+1eb4b eliminate build warnings by using the integrated function
+a44ce extended fix for orf global emm dont disable global emms or set in config blockemm-g = 0 caid 0x0D96 & 0x0D98
+e6ae5 fix last commit missing ;
+c230d some cleanups for newcamd and add script for git svn diff creation
+882ba streamguard: add more init command, and format code.
+8ad2d add patches on official oscam and emu.
+43695 streamguard: try to parse emm data.
+28e57 fix typo in mca build thanks sattotal
+38989 enhance function anticascading or SIDs count
+f610a Merge to r11486 from streamboard.tv (oscam emu r175).
+3399c streamguard: code format.
+e11eb build: keep work files for debug.
+1f0ec streamguard: use md5 from cscrypt.
+ae78c streamguard: change the method of calculate cas_version.
+7b113 not link pcsclite when enabled dl.
+2dd31 add UPC Hungary support & clean up http://www.streamboard.tv/wbb2/thread.php?postid=582474#post582474
+2c078 Fix NAN % in READERS ECM INFO
+e62d5 enhancement #4662 by Jotne show number of cards in the log
+1aa74 fix small typo move log to debug #4664
+a132b fix #4692 for missing values in ecminfo_type = 3
+79262 small cleanup - CMakeLists.txt - Makefile
+f14ef big update pack 5 another cleanup & removed duplicate functions
+bd2ad unified presentation of tabs and spaces
+b2fc3 big cleanup pack 4
+8ed86 another buildwarning fix !!! SAMYGO User !!! report any issue
+489a4 fix 4 build warnings
+dc7b5 fix another small build warning
+8387b fix cmake compiler warning
+16014 big cleanup pack 3
+6d381 big cleanup & bugfix for all warnings for gcc 7.2+
+daf5b cleanup module-dvbapi.c
+7016b Cleanup and add functions
+40f4c fix warnings in #11468
+21106 another cleanup patch
+5a37e small cleanup in cscrypt + adding libs
+5b028 set demuxer stop point if PMT demux_index == 0 found by schwa226
+b888a Changeset: - fix Nagra & Nagra Merlin Tier Expire Dates - Nagra EMM Filter merged - Nagra Merlin Code cleanup - completeness check of the required CAK7 keys - Block NAD changes reverted - fix xxor fallthrough - aescbc removed - tabs / comments / spaces cleanup thnx kabeltod
+adaed tryfix http://www.streamboard.tv/wbb2/thread.php?postid=582014#post582014
+50847 part1 cleanup and fixes for gcc 8.2
+b39e0 fix last commit
+83a91 another cleanup patch thnx optimum power
+c0b72 code cleanup and fix for NDS Standard cards thnx to KD (de-board)
+6bcb1 fix typo missing ;
+cd9f9 fix 1x fallthrough / break videoguard2 cleanup
+55d90 part 2 for ORF AU fix -add CAID 0D96 -add on/off switch thnx to pehedima
+ef4d2 [gbx] - fix oscam crash when enable ccc to gbx share
+1e1c0 add support for VideoGuard BSkyB (0960) entitlement date
+3707e I send the FEDC patch for polish seca cards. It was made by: Jej@n and ketanol
+2d175 created functions for detecting caid. "tandberg" is renamed to "director", because tandberg is the compary and director is the CA system.
+abf00 some dvbapi cleanups (but there's more to do.) -whitespace clean up
+3684a update oscam-emu to r784.
+bfc98 fix for last commit ...
+52b0e !!!! Better stream type identification based on descriptors
+5f5e7 fix orf cards (0D98) au if global is blocked
+008fd better solution streamid thnx Nautilus7
+5cbfc Tryfix for Powervu EMU by Nautilus7 http://www.streamboard.tv/wbb2/thread.php?threadid=45918
+244e5 - [gbx] - Speed up local card status detection and report cards to peers
+30a88 fix for last commit ...
+485cf !!!! Better stream type identification based on descriptors
+a277a fix orf cards (0D98) au if global is blocked
+a348e better solution streamid thnx Nautilus7
+e8eab Tryfix for Powervu EMU by Nautilus7 http://www.streamboard.tv/wbb2/thread.php?threadid=45918
+db517 - [gbx] - Speed up local card status detection and report cards to peers
+50811 - fix for ticket #4699 - add tandberg to 'get cardsysten' in oscam.simples.c - fix for ticket #4700 - add #include <sys/sysmacros.h> to globals.h
+b0b20 - fix for ticket #4699 - add tandberg to 'get cardsysten' in oscam.simples.c - fix for ticket #4700 - add #include <sys/sysmacros.h> to globals.h
+c0929 [gbx] - fix peer password not stored in config  issue introduced with last commit  thx @Azo for catching that
+74895 [gbx] - fix peer password not stored in config  issue introduced with last commit  thx @Azo for catching that
+e7fee dvbapi: slience array bounds warnning for selected_box device.
+3b091 [gbx] - fix parameter 'gbox_reshare'  - show peer-id & online stat in webif reader  - code clear up
+762db fix compiler issue when build without gbox
+ddc10 [gbx] - fix parameter 'gbox_reshare'  - show peer-id & online stat in webif reader  - code clear up
+7b138 fix compiler issue when build without gbox
+d8779 [gbx]  - improve REMM feature  - show remm req in webif  - gbx webif cosmetics/improvements  - fix typos from r11437 thx @sattotal  - remove ccc stuff from gbx page when ccc not compiled in  - webif: display 'use_gpio' on physical readers only
+cd737 [nagra merlin]  - fix some compiler errors and warnings introduced r11429  - patch provided by @DaMulda
+6515d [gbx]  - improve REMM feature  - show remm req in webif  - gbx webif cosmetics/improvements  - fix typos from r11437 thx @sattotal  - remove ccc stuff from gbx page when ccc not compiled in  - webif: display 'use_gpio' on physical readers only
+c5803 [nagra merlin]  - fix some compiler errors and warnings introduced r11429  - patch provided by @DaMulda
+e20ee mdc2: fix multiple definition of DES_SPtrans and DES_encrypt1 for some toolchain.
+52b8c svnversion bump to 11439.
+a33d8 - Enables Nagra Merlin (CAK7) reader by default - Corresponding keys are now configurable via WebIf and config files
+89b87 dvbapi: fix a error for stapi.
+0a766 - Enables Nagra Merlin (CAK7) reader by default - Corresponding keys are now configurable via WebIf and config files
+06efb [gbx webif] - dont show cccam stuff in gbx reader page
+1d62e [gbx webif] - make webif more gbx friendly - gbx specific settings not shown on other protocols - moved 'use_gpio' from smargo to mouse
+44881 Fix for tiers with rights set to 0x49xx (tnx tommy76 for research and patch!)
+adb7d - Revert r11164 see ticket #4609 (tnx Tommy76 for researching!)
+ce403 - Fix #4688 not procesing all received emm packets at filter startup tnx xoxo for this patch!
+df283 - fix DGCrypt Redlight Card not running since r11429 - this fixes ticket #4687 - thx @OP and @pehedima - fix mdc2.c compilation with openssl 1.1.x - thx @flk - fix orf_ice text in cardlist.h
+fd7f6 KDG G0x - don't set deprecated mode by default
+3d28c [gbx webif] - dont show cccam stuff in gbx reader page
+feb91 [gbx webif] - make webif more gbx friendly - gbx specific settings not shown on other protocols - moved 'use_gpio' from smargo to mouse
+c8f30 Fix for tiers with rights set to 0x49xx (tnx tommy76 for research and patch!)
+29ccf - Revert r11164 see ticket #4609 (tnx Tommy76 for researching!)
+168df - Fix #4688 not procesing all received emm packets at filter startup tnx xoxo for this patch!
+5f4bd - fix DGCrypt Redlight Card not running since r11429 - this fixes ticket #4687 - thx @OP and @pehedima - fix mdc2.c compilation with openssl 1.1.x - thx @flk - fix orf_ice text in cardlist.h
+d7ee5 KDG G0x - don't set deprecated mode by default
+8e7c4 [CMake]： link pcsclite.
+cf262 [CMAKE] - some systems need libm for nagra cak7 - patch provided by @caveman99 - fix for ticket #4681
+ee601 [Nagra] - continue to prepare code for Nagra Merlin support - try to fix for HD04 display of tiers and valid_to
