@@ -227,6 +227,23 @@ static void boxid_fn(const char *token, char *value, void *setting, FILE *f)
 		{ fprintf_conf(f, token, "\n"); }
 }
 
+#if defined(READER_STREAMGUARD) || defined(READER_TONGFANG) || defined(READER_JET)
+static void cas_version_fixed_fn(const char *UNUSED(token), char *value, void *setting, FILE *UNUSED(f))
+{
+	struct s_reader *rdr = setting;
+	if(value)
+	{
+		if(atoi(value) == 1)
+		{
+			rdr->cas_version |= 0x010000L;
+			return;
+		}
+		rdr->cas_version &= 0x00FFFFL;
+		return;
+	}
+}
+#endif
+
 #ifdef READER_JET
 static void jet_authorize_id_fn(const char *token, char *value, void *setting, FILE *f)
 {
@@ -1163,8 +1180,9 @@ static const struct config_list reader_opts[] =
 	DEF_OPT_FUNC("caid"                           , OFS(ctab),                            reader_caid_fn),
 	DEF_OPT_FUNC("atr"                            , 0,                                    atr_fn),
 	DEF_OPT_FUNC("boxid"                          , 0,                                    boxid_fn),
-#ifdef READER_STREAMGUARD
-	DEF_OPT_UINT32("cas_version"                  , OFS(cas_version),                     0),
+#if defined(READER_STREAMGUARD) || defined(READER_TONGFANG) || defined(READER_JET)
+	DEF_OPT_INT32("cas_version"                   , OFS(cas_version),                     0),
+	DEF_OPT_FUNC("cas_version_fixed"              , 0,                                    cas_version_fixed_fn),
 #endif
 #ifdef  READER_TONGFANG
 	DEF_OPT_FUNC("tongfang3_calibsn"              , 0,                                    tongfang3_calibsn_fn),

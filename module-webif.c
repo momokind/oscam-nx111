@@ -1340,7 +1340,11 @@ static char *send_oscam_config_cccam(struct templatevars *vars, struct uriparams
 
 	tpl_addVar(vars, TPLADD, "STEALTH", (cfg.cc_stealth == 1) ? "checked" : "");
 
-	tpl_printf(vars,TPLADD, "CCCFGFILE","%s",cfg.cc_cfgfile);
+	if (cfg.cc_cfgfile)
+		tpl_printf(vars,TPLADD, "CCCFGFILE","%s", cfg.cc_cfgfile);
+	else
+		tpl_printf(vars,TPLADD, "CCCFGFILE","%s", "");
+
 	tpl_printf(vars, TPLADD, "NODEID", "%02X%02X%02X%02X%02X%02X%02X%02X",
 			   cfg.cc_fixed_nodeid[0], cfg.cc_fixed_nodeid[1], cfg.cc_fixed_nodeid[2], cfg.cc_fixed_nodeid[3],
 			   cfg.cc_fixed_nodeid[4], cfg.cc_fixed_nodeid[5], cfg.cc_fixed_nodeid[6], cfg.cc_fixed_nodeid[7]);
@@ -1604,6 +1608,10 @@ static char *send_oscam_config_dvbapi(struct templatevars *vars, struct uriparam
 	//Request Mode
 	tpl_printf(vars, TPLADD, "TMP", "REQMODESELECTED%d", cfg.dvbapi_requestmode);
 	tpl_addVar(vars, TPLADD, tpl_getVar(vars, "TMP"), "selected");
+
+	//ecminfo_file
+	if(cfg.dvbapi_ecminfo_file > 0)
+		{ tpl_addVar(vars, TPLADD, "ECMINFOFILECHECKED", "checked"); }
 
 	//ecminfo_type
 	tpl_printf(vars, TPLADD, "TMP", "ECMINFOTYPESELECTED%d", cfg.dvbapi_ecminfo_type);
@@ -2823,8 +2831,9 @@ static char *send_oscam_reader_config(struct templatevars *vars, struct uriparam
 
 	if(rdr->detect_seca_nagra_tunneled_card)
 		{ tpl_addVar(vars, TPLADD, "NAGRADETECTSECACARDCHECKED", "checked"); }
-#ifdef READER_STREAMGUARD
-	tpl_printf(vars, TPLADD, "CASVERSION",  "%d", rdr->cas_version);
+#if defined(READER_STREAMGUARD) || defined(READER_TONGFANG) || defined(READER_JET)
+	tpl_printf(vars, TPLADD, "CASVERSION",  "%ld", rdr->cas_version & 0x00FFFFL);
+	tpl_printf(vars, TPLADD, "CASVERSIONFIXED",  (rdr->cas_version & 0x010000L) ? "checked" : "");
 #endif
 #ifdef READER_TONGFANG
 	if(rdr->tongfang3_calibsn)
